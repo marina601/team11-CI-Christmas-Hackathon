@@ -1,108 +1,152 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Hackathon Project Title/Name
+***
 
-Welcome USER_NAME,
+## Table of Contents:
+* [What does it do and what does it need to fulfill?](#what-does-it-do-and-what-does-it-need-to-fulfill)
+* [Functionality of Project](#functionality-of-project)
+* [User Experience](#user-experience)
+    * [User Stories](#user-stories)
+    * [Design](#design)
+        * [1. Font](#1-font)
+        * [2. Color Scheme](#2-color-scheme)
+        * [3. Logo](#3-logo)
+        * [4. Geometry](#4-geometry)
+        * [5. Wireframing](#5-wireframing)
+* [Technology Used](#technology-used)
+* [Database](#database)
+* [Features](#features)
+    * [Future Features](#future-features)
+* [Testing](#testing)
+    * [Defensive Design](#defensive-design)
+* [Deployment](#deployment)
+* [Credits](#credits)
+    * [Special Thanks & Acknowledgements](#special-thanks--acknowledgements)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+***
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## Welcome to <<project-name>>!
 
-## Gitpod Reminders
+![show final site image here](assets/docs/image.png)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+***
 
-`python3 -m http.server`
+## What does it do and what does it need to fulfill?
+lorem
 
-A blue button should appear to click: _Make Public_,
+![show favicon site image here](assets/docs/image.png)
 
-Another blue button should appear to click: _Open Browser_.
+### Functionality of Project
+This application contains ....
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+[Back to top](#table-of-contents)
 
-A blue button should appear to click: _Make Public_,
+## User Experience:
 
-Another blue button should appear to click: _Open Browser_.
+#### User Stories:
+_Generic (Guest/Public) User:_
+* As a Generic User, I want to...
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+_Registers (Logged in) User:_
+* As a Registered User, I want to...
 
-To log into the Heroku toolbelt CLI:
+_Developer:_
+* As a Developer, I want to...
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+#### Design
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+##### 1. Font
+lorem
 
-------
+##### 2. Color Scheme
+lorem - replace as necessary
 
-## Release History
+detail color palettes/swatches here using images.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+The colors used throughout and what for etc....
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+##### 3. Logo
+The logo was ... add detail, or remove as necessary
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+![show site logo here](assets/docs/image.png)
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+##### 4. Geometry
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+The applications geometrical aspects...
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+##### 5. Wireframing
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+lorem...talk about wireframing planning and such...
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+add wireframes to below
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+<details>
+<summary>Wireframes</summary>
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+![show mobile wireframe here](assets/docs/image.png)
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+![show medium/large wireframe here](assets/docs/image.png)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+</details>
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+[Back to Top](#table-of-contents)
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+## Technology Used
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+#### Languages, Frameworks, Editors & Version Control:
 
-------
+* add notes here on techstack...
 
-## FAQ about the uptime script
+#### Tools Used:
 
-**Why have you added this script?**
+* add notes here on tools used to assist in developing the project...
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+## Database
 
-**How will this affect me?**
+#### Database Schema:
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+Detail the db schema here (if applicable)....images, thoughts behind fks etc
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+## Features
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+The project boasts several key features:
+* Create: ...
 
-**So….?**
+[Back to Top](#table-of-contents)
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+#### Future Features:
 
-**Can I opt out?**
+* Detail future implementations here...
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+## Testing
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+Testing was ...
 
-**Anything more?**
+#### Found Bugs and Fixes:
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+During manual testing...
 
----
+[Back to Top](#table-of-contents)
 
-Happy coding!
+#### Defensive Design
+
+Defensive design for this application was...
+
+## Deployment
+
+Detail deployment here...
+
+[Back to Top](#table-of-contents)
+
+## Credits
+
+* Detail credits
+
+[Back to Top](#table-of-contents)
+
+#### Special Thanks & Acknowledgements:
+
+* Team 11 🤜
+
+###### <i>Disclaimer: This project was created for educational use only as part of Code Institute's 2021 Christmas Hackathon</i>
+
+[Back to Top](#table-of-contents)
