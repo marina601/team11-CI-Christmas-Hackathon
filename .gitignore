@@ -7,3 +7,9 @@ __pycache__/
 node_modules/
 .github/
 cloudinary_python.txt
+.vscode/
+.venv/
+.DS_Store
+.gitpod.dockerfile
+.gitpod.yml
+settings.json
