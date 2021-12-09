@@ -31,7 +31,7 @@
 ***
 
 ## What does it do and what does it need to fulfill?
-lorem lorem lorem lorem lorem
+lorem lorem lorem
 
 ![show favicon site image here](assets/docs/image.png)
 
