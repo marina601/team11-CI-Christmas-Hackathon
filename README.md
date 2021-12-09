@@ -60,8 +60,7 @@ lorem
 ##### 2. Color Scheme
 lorem - replace as necessary
 
-* ![#000000](https://placehold.it/15/000000/000000?text=+) `#000000` - Primary color
-* ![#432344](https://placehold.it/15/432344/000000?text=+) `#432344` - Secondary color
+detail color palettes/swatches here using images.
 
 The colors used throughout and what for etc....
 
