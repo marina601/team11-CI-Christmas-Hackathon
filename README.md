@@ -75,7 +75,7 @@ The applications geometrical aspects...
 
 ##### 5. Wireframing
 
-The wireframes can be seen below
+The wireframes can be seen below. 
 
 <details>
 <summary>Wireframes</summary>
