@@ -1,0 +1,20 @@
+/* Globals */
+:root {
+    --green: #344D2F;
+    --red: #A81817;
+    --silver: #C8BEB9;
+    --yellow: #FAC57D;
+    --off-white: #f0f4f7;
+}
+
+    /* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--green);
+    color: var(--silver);
+}

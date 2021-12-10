@@ -2,9 +2,11 @@
 {% block content %}
 
 <h1>Welcome to the wishing tree app</h1>
-{% for wish in wishes %}
-   {{ wish }}
-{% endfor %}
 
+<div class="container">
+   {% for wish in wishes %}
+      {{ wish }}
+   {% endfor %}
+</div>
 
 {% endblock %}
