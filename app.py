@@ -29,7 +29,7 @@ def index():
     """
     wishes = mongo.db.products.find()
 
-    return render_template("index.html", wishes=wishes)
+    return render_template("home.html", wishes=wishes)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
