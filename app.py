@@ -31,6 +31,91 @@ def index():
 
     return render_template("home.html", wishes=wishes)
 
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    """
+    Checking if the user already exists,
+    If not, then checking if username exists
+    Checking if password_1 = password_2
+    Creating a dictionary to insert user into db
+    Insert the new user into db
+    Put the user into 'session' cookie
+    Redirect the user to their profile page
+    """
+    if request.method == "POST":
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            flash("Username in use, try alternative")
+            return redirect(url_for("register"))
+
+        password_1 = request.form.get("password")
+        password_2 = request.form.get("password_2")
+
+        if password_1 != password_2:
+            flash("Your passwords do not match")
+            return redirect(url_for("register"))
+        
+        email = request.form.get("email")
+
+        register = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password")),
+            "email": request.form.get("email")
+        }
+        mongo.db.users.insert_one(register)
+
+        session["user"] = request.form.get("username").lower()
+        flash("You have successfully Registered!")
+        return redirect(url_for('index', username=session["user"]))
+
+    # Page Title
+    title = 'Register'
+    return render_template("register.html", title=title)
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    """
+    Login route
+    Check if user exists in the database
+    Check if password matches user input
+    Redirects user to home page
+    Otherwise error message displayed
+    """
+    if request.method == "POST":
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            if check_password_hash(existing_user
+                                   ["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}"
+                      .format(request.form.get("username").capitalize()))
+                return redirect(url_for(
+                    'profile', username=session["user"]))
+
+            else:
+                # invalid password match
+                flash("You have enetered incorrect Username and/or Password")
+                return redirect(url_for('login'))
+
+        else:
+            # invalid username match
+            flash("You have entered incorrect Username and/or Password")
+            return redirect(url_for('login'))
+
+    # if the user is already in session
+    if 'user' in session:
+        return redirect(url_for('index', username=session['user']))
+
+    # Page Title
+    title = 'Login'
+    return render_template("login.html", title=title)
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
