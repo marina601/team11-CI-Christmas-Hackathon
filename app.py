@@ -27,7 +27,7 @@ def index():
     """
     Find Products from Mongo db collection
     """
-    wishes = mongo.db.products.find()
+    wishes = mongo.db.wishes.find()
 
     return render_template("home.html", wishes=wishes)
 
