@@ -13,3 +13,4 @@ cloudinary_python.txt
 .gitpod.dockerfile
 .gitpod.yml
 settings.json
+env.py
