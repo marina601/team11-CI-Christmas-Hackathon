@@ -75,16 +75,12 @@ The applications geometrical aspects...
 
 ##### 5. Wireframing
 
-lorem...talk about wireframing planning and such...
-
-add wireframes to below
+The wireframes can be seen below
 
 <details>
 <summary>Wireframes</summary>
 
-![show mobile wireframe here](assets/docs/image.png)
-
-![show medium/large wireframe here](assets/docs/image.png)
+[wireframes here](readme/wireframes.pdf)
 
 </details>
 
