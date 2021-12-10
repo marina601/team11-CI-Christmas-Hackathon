@@ -18,13 +18,3 @@ body {
     background-color: var(--green);
     color: var(--silver);
 }
-
-/* Home template */
-.underline::after {
-    content: '';
-    display: block;
-    margin-top: 0.5rem;
-    height: 1px;
-    width: 50%;
-    background-color: var(--off-white);
-}
