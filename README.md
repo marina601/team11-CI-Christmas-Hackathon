@@ -75,16 +75,25 @@ The applications geometrical aspects...
 
 ##### 5. Wireframing
 
-lorem...talk about wireframing planning and such...
-
-add wireframes to below
+The wireframes were created for each individual page on three different screen sizes. They live below. 
 
 <details>
 <summary>Wireframes</summary>
+Home page
 
-![show mobile wireframe here](assets/docs/image.png)
+![Home page](static/images/home_page_wireframe.png)
 
-![show medium/large wireframe here](assets/docs/image.png)
+Wish tree page
+
+![Wish tree page](static/images/wish_tree_page_wireframe.png)
+
+Send wishes page
+
+![Send wishes page](static/images/send_wishes_wireframe.png)
+
+Login/Register page
+
+![Login/Register page](static/images/login_register_page_wireframe.png)
 
 </details>
 
