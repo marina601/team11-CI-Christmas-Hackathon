@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="wishing tree app">
   <meta name="keywords" content="christmas, celebration, festivity">
+  <!-- Materialize Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Custom project css file -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
 
@@ -25,6 +28,9 @@
    {% block content %}
    {% endblock %}
 
+   <!-- Compiled and minified JavaScript -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   <!-- Custom project js file -->
    <script  src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

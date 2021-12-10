@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Welcome to the wishing tree app</h1>
-{% for wish in wishes %}
-   {{ wish }}
-{% endfor %}
+<h1 class="underline">Welcome to the wishing tree app</h1>
 
+<div class="container">
+   {% for wish in wishes %}
+      {{ wish }}
+   {% endfor %}
+</div>
 
 {% endblock %}
