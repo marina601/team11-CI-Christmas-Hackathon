@@ -52,6 +52,19 @@
                             <label for="password_2">Repeat Password</label>
                         </div>
                     </div>
+                    <!--select a group-->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="fas fa-users prefix"></i>
+                            <select id="group_name" name="group_name" class="validate" required>
+                                <option value="" disabled selected>Select your Group</option>
+                                {% for group in groups %}
+                                    <option value="{{ group.group_name}}">{{ group.group_name }}</option>
+                                {% endfor %}
+                            </select>
+                            <label for="group_name">Select your group</label>
+                        </div>
+                    </div>
                     <!--Register Button-->
                     <div class="row">
                         <button type="submit" class="col s12 btn-large submit-btn text-shadow">
