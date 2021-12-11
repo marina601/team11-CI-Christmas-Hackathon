@@ -1,7 +1,5 @@
-# Hackathon Project Title/Name
+# The WishingTree
 ***
-
-and testing again
 
 
 ## Table of Contents:
@@ -27,29 +25,19 @@ and testing again
 
 ***
 
-## Welcome to <<project-name>>!
+## Welcome to <<The Wishing Tree>>!
 
 ![show final site image here](assets/docs/image.png)
 
 ***
 
 ## What does it do and what does it need to fulfill?
-lorem lorem lorem
-lorem lorem lorem
-lorem lorem lorem
-lorem lorem lorem
-lorem lorem lorem
-lorem lorem lorem
-lorem lorem lorem
-lorem lorem lorem
-
-lorem lorem lorem
-lorem lorem lorem
+The Wishing Tree is an app that lets users create a profile and when logged in they can create  Christmas messages to send to different family members or friends.  The message will appear in the inbox of the person for whom the message is intended.
 
 ![show favicon site image here](assets/docs/image.png)
 
 ### Functionality of Project
-This application contains ....
+This application contains a login page, a register page, a wishing tree page, a logout page.
 
 [Back to top](#table-of-contents)
 
@@ -57,10 +45,12 @@ This application contains ....
 
 #### User Stories:
 _Generic (Guest/Public) User:_
-* As a Generic User, I want to...
+* As a Generic User, I want to see what this app does, how it works and to 
 
 _Registers (Logged in) User:_
-* As a Registered User, I want to...
+* As a Registered User, I want to:
+* see the wishes I have made in my profile
+* create wishes to be sent to a family member or friend
 
 _Developer:_
 * As a Developer, I want to...
