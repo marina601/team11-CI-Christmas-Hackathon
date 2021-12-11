@@ -96,7 +96,7 @@ def login():
                 flash("Welcome, {}"
                       .format(request.form.get("username").capitalize()))
                 return redirect(url_for(
-                    'profile', username=session["user"]))
+                    'index', username=session["user"]))
 
             else:
                 # invalid password match
@@ -115,6 +115,14 @@ def login():
     # Page Title
     title = 'Login'
     return render_template("login.html", title=title)
+
+@app.route("/logout")
+def logout():
+    # remove user from session cookies
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("index"))
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
