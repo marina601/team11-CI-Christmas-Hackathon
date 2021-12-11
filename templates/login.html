@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <section class="main-content">
+        <div class="row">
+            <div class="col s12">
+                <h2 class="text-center heading">Login</h2>
+            </div>
+        </div>
+        <div class="row">
+            <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
+                <div class="card-panel">
+                    <!--Username-->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="fas fa-user-cog prefix"></i>
+                            <input id="username" name="username" minlength="5" maxlength="10"
+                                pattern="^[a-zA-Z0-9!?]{5,10}$" type="text" class="validate" required
+                                oninput="this.setCustomValidity('')"
+                                oninvalid="this.setCustomValidity('Please enter a valid username')" />
+                            <label for="username">Username</label>
+                        </div>
+                    </div>
+                    <!--Password-->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="fas fa-user-lock prefix"></i>
+                            <input id="password" name="password" type="password" minlength="5" maxlength="10"
+                                pattern="^[a-zA-Z0-9!?]{5,10}$" class="validate" required
+                                oninput="this.setCustomValidity('')"
+                                oninvalid="this.setCustomValidity('Please enter a valid password')">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <!--Login Button-->
+                    <div class="row">
+                        <button type="submit" class="col s12 btn-large submit-btn text-shadow">
+                            Login<i class="fas fa-sign-in-alt"></i>
+                        </button>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 login-link">
+                            <p>Do not have an account yet? </p>
+                            <a href="{{ url_for('register') }}" class=" product-details">Register Here</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+{% endblock%}
