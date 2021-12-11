@@ -43,6 +43,8 @@ def register():
     Put the user into 'session' cookie
     Redirect the user to their profile page
     """
+    groups = list(mongo.db.groups.find().sort("group_name", 1))
+
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -50,6 +52,15 @@ def register():
         if existing_user:
             flash("Username in use, try alternative")
             return redirect(url_for("register"))
+        
+        # Validate email
+        existing_email = mongo.db.users.find_one(
+            {"email": request.form.get("email")}
+        )
+
+        if existing_email:
+            flash("This email address already exists")
+            return redirect(url_for("login"))
 
         password_1 = request.form.get("password")
         password_2 = request.form.get("password_2")
@@ -63,17 +74,18 @@ def register():
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "email": request.form.get("email")
+            "email": request.form.get("email"),
+            "group_name": request.form.get("group_name")
         }
         mongo.db.users.insert_one(register)
 
         session["user"] = request.form.get("username").lower()
         flash("You have successfully Registered!")
         return redirect(url_for('index', username=session["user"]))
-
+    
     # Page Title
     title = 'Register'
-    return render_template("register.html", title=title)
+    return render_template("register.html", title=title, groups=groups)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -122,6 +134,29 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("index"))
+
+
+@app.route("/add_group", methods=["GET", "POST"])
+def add_group():
+    """Create a new group"""
+    if request.method == "POST":
+        # Check for existing group names
+        existing_group = mongo.db.groups.find_one(
+            {"group_name": request.form.get("group_name")}
+        )
+
+        if existing_group:
+            flash("This group name already exists, choose another one")
+            return redirect(url_for("add_group"))
+
+        group = {
+            "group_name": request.form.get("group_name")
+        }
+        mongo.db.groups.insert_one(group)
+        flash("New Group Created!")
+        return redirect(url_for("register"))
+
+    return render_template("add_group.html")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="center-align">Create a Group</h3>
+
+    <div class="row card-panel grey lighten-5">
+        <form class="col s12" method="POST" action="{{ url_for('add_group') }}">
+            <!--Group Name-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-users prefix"></i>
+                    <input id="group_name" name="group_name" minlength="3" maxlength="25"
+                     type="text" class="validate" required>
+                    <label for="group_name">Create a Group Name</label>
+                </div>
+            </div>
+            <!--Submit Button-->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button class="btn-large" type="submit">
+                     Create a Group <i class="fas fa-plus-square right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
