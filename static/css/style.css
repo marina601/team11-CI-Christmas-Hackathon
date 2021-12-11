@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap');
+
 /* Globals */
 :root {
     --green: #344D2F;
@@ -23,6 +25,7 @@ body {
 nav {
     background-color: transparent;
     box-shadow: none;
+    height: 100px;
 }
 
 .nav-wrapper::after {
@@ -34,7 +37,7 @@ nav {
     background-position: center center;
     background-size: cover;
     position: relative;
-    top: -15px;
+    top: -5px;
     filter: hue-rotate(90deg);
 }
 
@@ -42,6 +45,18 @@ nav .sidenav-trigger {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    float: none;
+}
+
+nav .brand-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    font-family: 'Fuzzy Bubbles', sans-serif;
+}
+
+nav .brand-logo i {
+    margin-right: 10px;
     float: none;
 }
 
@@ -83,5 +98,27 @@ nav .sidenav-trigger {
     }
     100% {
         transform: rotate(0);
+    }
+}
+
+/* Media Queries */
+
+@media (min-width: 992px) {
+    /* Navbar */
+    nav .brand-logo {
+        margin-left: 1.5rem;
+    }
+
+    .nav-wrapper::after {
+        content: '';
+        display: block;
+        height: 60px;
+        background-image: url(../images/tinsel.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        position: relative;
+        top: 60px;
+        filter: hue-rotate(90deg);
     }
 }
