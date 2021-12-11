@@ -1,6 +1,6 @@
 <nav>
     <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Logo</a>
+        <a href="#" class="brand-logo">WishTree</a>
 
         <a href="#" data-target="mobile-toggler" class="sidenav-trigger">
             <i class="fas fa-candy-cane"></i>
@@ -9,10 +9,10 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             {% if session.user %}
                 <li>
-                    <a href="">Wishing Tree</a>
+                    <a href="#">Wishing Tree</a>
                 </li>
                 <li>
-                    <a href="">Add Wish</a>
+                    <a href="#">Add Wish</a>
                 </li>
                 <li>
                     <a href="{{ url_for('logout') }}">Logout</a>
@@ -35,10 +35,10 @@
             <a href="{{ url_for('index') }}">Home</a>
         </li>
         <li>
-            <a href="">Wishing Tree</a>
+            <a href="#">Wishing Tree</a>
         </li>
         <li>
-            <a href="">Add Wish</a>
+            <a href="#">Add Wish</a>
         </li>
         <li>
             <a href="{{ url_for('logout') }}">Logout</a>
