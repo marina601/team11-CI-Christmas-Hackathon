@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap');
+
 /* Globals */
 :root {
     --green: #344D2F;
@@ -17,4 +19,106 @@
 body {
     background-color: var(--green);
     color: var(--silver);
+}
+
+    /* Navbar */
+nav {
+    background-color: transparent;
+    box-shadow: none;
+    height: 100px;
+}
+
+.nav-wrapper::after {
+    content: '';
+    display: block;
+    height: 60px;
+    background-image: url(../images/tinsel.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    top: -5px;
+    filter: hue-rotate(90deg);
+}
+
+nav .sidenav-trigger {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    float: none;
+}
+
+nav .brand-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    font-family: 'Fuzzy Bubbles', sans-serif;
+}
+
+nav .brand-logo i {
+    margin-right: 10px;
+    float: none;
+}
+
+.sidenav-trigger i {
+    font-size: 3rem;
+}
+
+.sidenav-trigger i:hover{
+    animation-name: shake;
+    animation-duration: 1000ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0);
+    }
+    15% {
+        transform: rotate(5deg);
+    }
+    30% {
+        transform: rotate(-5deg);
+    }
+    45% {
+        transform: rotate(4deg);
+    }
+    60% {
+        transform: rotate(-4deg);
+    }
+    75% {
+        transform: rotate(2deg);
+    }
+    85% {
+        transform: rotate(-2deg);
+    }
+    92% {
+        transform: rotate(1deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+/* Media Queries */
+
+@media (min-width: 992px) {
+    /* Navbar */
+    nav .brand-logo {
+        margin-left: 1.5rem;
+    }
+
+    .nav-wrapper::after {
+        content: '';
+        display: block;
+        height: 60px;
+        background-image: url(../images/tinsel.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        position: relative;
+        top: 60px;
+        filter: hue-rotate(90deg);
+    }
 }

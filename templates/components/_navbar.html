@@ -1,0 +1,59 @@
+<nav>
+    <div class="nav-wrapper">
+        <a href="{{ url_for('index') }}" class="brand-logo">
+            <i class="fas fa-tree"></i>WishTree
+        </a>
+
+        <a href="#" data-target="mobile-toggler" class="sidenav-trigger">
+            <i class="fas fa-candy-cane"></i>
+        </a>
+
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            {% if session.user %}
+                <li>
+                    <a href="#">Wishing Tree</a>
+                </li>
+                <li>
+                    <a href="#">Add Wish</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{{ url_for('register') }}">Register</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('login') }}">Login</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+<ul class="sidenav" id="mobile-toggler">
+    {% if session.user %}
+        <li>
+            <a href="{{ url_for('index') }}">Home</a>
+        </li>
+        <li>
+            <a href="#">Wishing Tree</a>
+        </li>
+        <li>
+            <a href="#">Add Wish</a>
+        </li>
+        <li>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </li>
+    {% else %}
+        <li>
+            <a href="{{ url_for('index') }}">Home</a>
+        </li>
+        <li>
+            <a href="{{ url_for('register') }}">Register</a>
+        </li>
+        <li>
+            <a href="{{ url_for('login') }}">Login</a>
+        </li>
+    {% endif %}
+</ul>
