@@ -31,7 +31,7 @@ nav {
 .nav-wrapper::after {
     content: '';
     display: block;
-    height: 60px;
+    height: 90px;
     background-image: url(../images/tinsel.png);
     background-repeat: no-repeat;
     background-position: center center;
@@ -110,15 +110,6 @@ nav .brand-logo i {
     }
 
     .nav-wrapper::after {
-        content: '';
-        display: block;
-        height: 60px;
-        background-image: url(../images/tinsel.png);
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-        position: relative;
         top: 60px;
-        filter: hue-rotate(90deg);
     }
 }
