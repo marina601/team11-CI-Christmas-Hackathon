@@ -6,6 +6,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sslify import SSLify
+from datetime import date
 if os.path.exists("env.py"):
     import env
 
@@ -157,6 +158,28 @@ def add_group():
         return redirect(url_for("register"))
 
     return render_template("add_group.html")
+
+@app.route("/add_wish", methods=["GET", "POST"])
+def add_wish():
+    today = date.today()
+    if request.method == "POST":
+        wish = {
+            # message
+            "message": request.form.get("message"),
+            # for date
+            "for_date": request.form.get(str("for_date")),
+            # from username
+            "username_from": session["user"],
+            "created_date": str(today),
+            "group_name": request.form.get("group_name"),
+        }
+        mongo.db.wishes.insert_one(wish)
+        flash("Wish Successfully Created")
+        return redirect(url_for("index"))
+        
+    users = mongo.db.users.find()
+    groups = mongo.db.groups.find().sort("group_name", 1)
+    return render_template("add_wish.html", groups=groups, users=users)
 
 
 if __name__ == "__main__":
