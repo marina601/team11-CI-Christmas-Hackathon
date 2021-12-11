@@ -24,6 +24,10 @@
   
 </head>
 <body>
+
+  <!-- Navbar component injection -->
+  {% include 'components/_navbar.html' %}
+
   <main class="container">
     <!-- Flash Messages-->
     {% with messages = get_flashed_messages() %}

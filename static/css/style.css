@@ -18,3 +18,15 @@ body {
     background-color: var(--green);
     color: var(--silver);
 }
+
+    /* Navbar */
+nav .sidenav-trigger {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    float: none;
+}
+
+[data-target="mobile-toggler"] i {
+    font-size: 3rem;
+}
