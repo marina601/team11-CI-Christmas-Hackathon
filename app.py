@@ -136,6 +136,29 @@ def logout():
     return redirect(url_for("index"))
 
 
+@app.route("/add_group", methods=["GET", "POST"])
+def add_group():
+    """Create a new group"""
+    if request.method == "POST":
+        # Check for existing group names
+        existing_group = mongo.db.groups.find_one(
+            {"group_name": request.form.get("group_name")}
+        )
+
+        if existing_group:
+            flash("This group name already exists, choose another one")
+            return redirect(url_for("add_group"))
+
+        group = {
+            "group_name": request.form.get("group_name")
+        }
+        mongo.db.groups.insert_one(group)
+        flash("New Group Created!")
+        return redirect(url_for("register"))
+
+    return render_template("add_group.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
