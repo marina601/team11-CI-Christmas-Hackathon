@@ -6,7 +6,7 @@ This app was developed by 5 coders, the snowflakes, as part of the Code Institut
 We were able to develop an app around the theme of Christmas and after some discussion we decided to create an app for a user to be able to send good wishes over the Christmas period to family and friends.
 
 
-## Table of Contents:
+## Table of Contents :
 * [What does it do and what does it need to fulfill?](#what-does-it-do-and-what-does-it-need-to-fulfill)
 * [Functionality of Project](#functionality-of-project)
 * [User Experience](#user-experience)
