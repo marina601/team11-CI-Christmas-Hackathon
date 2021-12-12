@@ -236,14 +236,13 @@ def edit_wish(wish_id):
         {"username": session["user"]})["group_name"]
     
     if request.method == "POST":
-        submit = {
+        mongo.db.wishes.find_one_and_update({"_id": ObjectId(wish_id)}, {"$set": {
             "message": request.form.get("message"),
             "for_date": request.form.get("for_date"),
             "username_from": session["user"],
             "group_name": user_group,
             "for_username": request.form.get("for_username"),
-        }
-        mongo.db.wishes.update({"_id": ObjectId(wish_id)}, submit)
+        }})
         flash("Your Wish Has Been Successfully Updated")
         return redirect(url_for('profile', username=session["user"]))
 
