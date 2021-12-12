@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+    
+    <!--Edit Wish-->
+    <section>
+      <div class="row">
+        <div class="col s12">
+          <h2 class="text-center heading text-shadow">Edit Your Wish</h2>
+        </div>
+      </div>
+      <div class="row card-panel">
+        <form class="col m7 s12" method="POST" action="{{ url_for('edit_wish', wish_id=wish._id) }}">
+            <!--Current User Group-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-users prefix"></i>
+                    <input id="group_name" name="group_name" value="{{ user_group }}" disabled/>
+                    <label for="group_name"></label>
+                </div>
+            </div>
+            <!--User Selection-->
+            <div class="row">
+                <div class="input-field col s12">
+                  <i class="fas fa-folder-open prefix"></i>
+                    <select id="for_username" name="for_username" class="validate" required>
+                        <option value="{{ wish.for_username }}" disabled selected>To: {{wish.for_username}}</option>
+                        {% for user in users %}
+                            <option value="{{ user.email }}">{{ user.email }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="for_username">Select a team memeber</label>
+                </div>
+            </div>
+            <!--Message-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-align-left prefix"></i>
+                    <textarea id="message" name="message" minlength="10" maxlength="200"
+                         class="materialize-textarea validate" required>{{ wish.message }}</textarea>
+                    <label for="message"></label>
+                </div>
+            </div>
+            <!--Due date picker-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-calendar-alt prefix"></i>
+                    <input id="for_date" name="for_date" type="text" class="datepicker validate" value="{{wish.for_date}}" required>
+                    <label for="for_date">Set the Date</label>
+                </div>
+            </div>
+          <div class="row card-action-btn">
+            <div class="col s6 card-action">
+              <!--Cancel Button-->
+              <a href="{{ url_for('profile', username=session['user']) }}" class="btn-large text-shadow btn-reset">
+                <i class="fas fa-times-circle"></i> Cancel
+              </a>
+            </div>
+            <div class="col s6 card-action">
+              <!--Submit Button-->
+              <button class="btn-large submit-btn text-shadow btn-submit" type="submit">
+                Submit <i class="fas fa-sign-in-alt"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+{% endblock %}
