@@ -161,25 +161,32 @@ def add_group():
 
 @app.route("/add_wish", methods=["GET", "POST"])
 def add_wish():
+    """
+    Add a new wish
+    get all the input fields from the form
+    create a new wish in the database
+    """
+    # find the current date
     today = date.today()
+    # find the current user group name
+    user_group = mongo.db.users.find_one(
+        {"username": session["user"]})["group_name"]
+    # find the users under the same group name
+    users = mongo.db.users.find({'group_name':user_group})
     if request.method == "POST":
         wish = {
-            # message
             "message": request.form.get("message"),
-            # for date
-            "for_date": request.form.get(str("for_date")),
-            # from username
+            "for_date": request.form.get("for_date"),
             "username_from": session["user"],
             "created_date": str(today),
-            "group_name": request.form.get("group_name"),
+            "group_name": user_group,
+            "for_username": request.form.get("for_username"),
         }
         mongo.db.wishes.insert_one(wish)
         flash("Wish Successfully Created")
         return redirect(url_for("index"))
-        
-    users = mongo.db.users.find()
-    groups = mongo.db.groups.find().sort("group_name", 1)
-    return render_template("add_wish.html", groups=groups, users=users)
+   
+    return render_template("add_wish.html", user_group=user_group, users=users)
 
 
 if __name__ == "__main__":
