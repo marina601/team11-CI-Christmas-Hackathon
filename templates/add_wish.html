@@ -1,41 +1,36 @@
 {% extends "base.html" %}
+
 {% block content %}
 
-    <h3 class="light-blue-text text-darken-4 center-align">Add Task</h3>
+    <h2 class="center-align">Add Wish</h2>
 
     <div class="row card-panel grey lighten-5">
         <form class="col s12" method="POST" action="{{ url_for('add_wish') }}">
-            <!--Category Selection-->
+            <!--Current User Group-->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix"></i>
-                    <select id="group_name" name="group_name" class="validate" required>
-                        <option value="" disabled selected>Choose Your Group</option>
-                        {% for group in groups %}
-                            <option value="{{ group.group_name}}">{{ group.group_name }}</option>
-                        {% endfor %}
-                    </select>
-                    <label for="group_name">Group Name</label>
+                    <i class="fas fa-users prefix"></i>
+                    <input id="group_name" name="group_name" value="{{ user_group }}" disabled/>
+                    <label for="group_name"></label>
                 </div>
             </div>
             <!--User Selection-->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-folder-open prefix"></i>
-                    <select id="group_name" name="group_name" class="validate" required>
+                    <select id="for_username" name="for_username" class="validate" required>
                         <option value="" disabled selected>Choose your team mate</option>
                         {% for user in users %}
                             <option value="{{ user.email }}">{{ user.email }}</option>
                         {% endfor %}
-
                     </select>
-                    <label for="group_name">Select a TEam mate</label>
+                    <label for="for_username">Select a team memeber</label>
                 </div>
             </div>
             <!--Message-->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                    <i class="fas fa-align-left prefix"></i>
                     <textarea id="message" name="message" minlength="5"
                         maxlength="200" class="materialize-textarea validate" required></textarea>
                     <label for="message">Write your wish</label>
@@ -44,16 +39,16 @@
             <!--Due date picker-->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
-                    <input id="due_date" name="due_date"type="text" class="datepicker validate" required>
-                    <label for="due_date">Set the Date</label>
+                    <i class="fas fa-calendar-alt prefix"></i>
+                    <input id="for_date" name="for_date" type="text" class="datepicker validate" required>
+                    <label for="for_date">Set the Date</label>
                 </div>
             </div>
             <!--Submit Button-->
             <div class="row">
                 <div class="col s12 center-align">
-                    <button class="btn-large light-blue darken-1 text-shadow" type="submit">
-                        Add a Wish <i class="fas fa-plus-square right"></i>
+                    <button class="btn-large" type="submit">
+                        Add a Wish <i class="fas fa-plus-square prefix"></i>
                     </button>
                 </div>
             </div>
