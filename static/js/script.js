@@ -1,5 +1,3 @@
-console.log("test");
-
 // Navbar toggler initialisation
 document.addEventListener('DOMContentLoaded', () => {
     let elems = document.querySelectorAll('.sidenav');
@@ -11,3 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
 $(document).ready(function(){
     $('select').formSelect();
   });
+
+// Initialize date picker
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+
+//modal
+$('.modal').modal();
