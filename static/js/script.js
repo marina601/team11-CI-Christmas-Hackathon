@@ -1,5 +1,3 @@
-console.log("test");
-
 // Navbar toggler initialisation
 document.addEventListener('DOMContentLoaded', () => {
     let elems = document.querySelectorAll('.sidenav');
