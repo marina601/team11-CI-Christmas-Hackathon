@@ -188,6 +188,40 @@ def add_wish():
    
     return render_template("add_wish.html", user_group=user_group, users=users)
 
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+    # grab the seeion user's username from db
+    # Page Title
+    title = 'Profile'
+
+    wishes = list(mongo.db.wishes.find())
+
+    if 'user' in session:
+        username = mongo.db.users.find_one(
+            {"username": username})["username"].capitalize()
+
+        wishes = list(mongo.db.wishes.find(
+                           {"username_from": session["user"]}))
+    else:
+        flash('You must be logged in!')
+        return redirect(url_for('login'))
+
+    return render_template(
+                "profile.html", username=username,
+                wishes=wishes, title=title)
+
+@app.route("/delete_wish/<wish_id>")
+def delete_wish(wish_id):
+    """
+    Delete a wish from the database
+    Redirect the user back to profile page
+    """
+    wish = mongo.db.wishes.find_one({"_id": ObjectId(wish_id)})
+    mongo.db.wishes.delete_one({"_id": ObjectId(wish_id)})
+    flash("Your wish has been Deleted")
+
+    return redirect(url_for('profile', username=session['user']))
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
