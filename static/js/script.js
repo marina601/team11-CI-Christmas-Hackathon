@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Initialize the select element 
-
 $(document).ready(function(){
     $('select').formSelect();
   });
