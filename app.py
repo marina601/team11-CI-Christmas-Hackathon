@@ -255,6 +255,11 @@ def edit_wish(wish_id):
                            users=users, user_group=user_group, title=title)
 
 
+@app.route("/wishing_tree")
+def wishing_tree():
+    return render_template("wishing_tree.html")
+
+
 @app.errorhandler(404)
 def response_404(exception):
     """
