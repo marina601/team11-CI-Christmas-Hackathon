@@ -9,3 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
 $(document).ready(function(){
     $('select').formSelect();
   });
+
+// Initialize date picker
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+
+//modal
+$('.modal').modal();
