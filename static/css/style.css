@@ -101,6 +101,11 @@ nav .brand-logo i {
     }
 }
 
+    /* Error 404 */
+.error-message {
+    text-align: center;
+}
+
 /* Media Queries */
 
 @media (min-width: 992px) {

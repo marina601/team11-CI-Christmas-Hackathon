@@ -159,6 +159,14 @@ def add_group():
     return render_template("add_group.html")
 
 
+@app.errorhandler(404)
+def response_404(exception):
+    """
+    On 404 detection, display custom 404.html template to user
+    """
+    return render_template('404.html', exception=exception, page_title="404")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
