@@ -165,10 +165,6 @@ footer::before {
     font-size: 1.4rem;
 }
 
-.dev a:hover {
-    color: var(--dk-red);
-}
-
 .dev a i {
     opacity: 0;
     backface-visibility: hidden;
@@ -202,6 +198,31 @@ footer::before {
 .dev a:hover i.c5 {
     color: rgb(0, 255, 170);
     box-shadow: 10px 10px 70px 20px rgba(0, 255, 191, 0.75);
+}
+
+#project-repo {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: var(--dark);
+}
+
+#project-repo span {
+    font-style: italic;
+}
+
+#project-repo::after {
+    content: '';
+    display: block;
+    width: 10%;
+    margin: 3px auto 0;
+    height: 1px;
+    background-color: var(--dk-red);
+    opacity: 0;
+}
+
+#project-repo:hover::after {
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
 }
 
 .footer-text {
