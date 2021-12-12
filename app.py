@@ -27,11 +27,9 @@ mongo = PyMongo(app)
 @app.route("/index")
 def index():
     """
-    Find Products from Mongo db collection
+    Route to index template
     """
-    wishes = mongo.db.wishes.find()
-
-    return render_template("home.html", wishes=wishes)
+    return render_template("home.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -257,7 +255,12 @@ def edit_wish(wish_id):
 
 @app.route("/wishing_tree")
 def wishing_tree():
-    return render_template("wishing_tree.html")
+    """Display user wishes"""
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})['email']
+    print(user)
+    wishes = mongo.db.wishes.find({'for_username':user})
+    return render_template("wishing_tree.html", wishes=wishes, user=user)
 
 
 @app.errorhandler(404)
