@@ -12,10 +12,13 @@
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 {% if session.user %}
                     <li>
-                        <a href="#">Wishing Tree</a>
+                        <a href="{{ url_for('wishing_tree') }}">Wishing Tree</a>
                     </li>
                     <li>
-                        <a href="#">Add Wish</a>
+                        <a href="{{ url_for('add_wish') }}">Add Wish</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('profile', username=session['user']) }}">Profile</a>
                     </li>
                     <li>
                         <a href="{{ url_for('logout') }}">Logout</a>
@@ -38,10 +41,13 @@
                 <a href="{{ url_for('index') }}">Home</a>
             </li>
             <li>
-                <a href="#">Wishing Tree</a>
+                <a href="{{ url_for('wishing_tree') }}">Wishing Tree</a>
             </li>
             <li>
-                <a href="#">Add Wish</a>
+                <a href="{{ url_for('add_wish') }}">Add Wish</a>
+            </li>
+            <li>
+                <a href="{{ url_for('profile', username=session['user']) }}">Profile</a>
             </li>
             <li>
                 <a href="{{ url_for('logout') }}">Logout</a>
