@@ -1,4 +1,5 @@
 import os
+import pymongo
 from flask import (
     Flask, flash, render_template, redirect,
     request, session, url_for)
@@ -188,6 +189,7 @@ def add_wish():
    
     return render_template("add_wish.html", user_group=user_group, users=users)
 
+
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab the seeion user's username from db
@@ -210,6 +212,7 @@ def profile(username):
                 "profile.html", username=username,
                 wishes=wishes, title=title)
 
+
 @app.route("/delete_wish/<wish_id>")
 def delete_wish(wish_id):
     """
@@ -221,6 +224,36 @@ def delete_wish(wish_id):
     flash("Your wish has been Deleted")
 
     return redirect(url_for('profile', username=session['user']))
+
+@app.route("/edit_wish/<wish_id>", methods=["GET", "POST"])
+def edit_wish(wish_id):
+    """
+    Edit wish route
+    Update the user wish based on wish_id
+    """
+    # find the current user group name
+    user_group = mongo.db.users.find_one(
+        {"username": session["user"]})["group_name"]
+    
+    if request.method == "POST":
+        submit = {
+            "message": request.form.get("message"),
+            "for_date": request.form.get("for_date"),
+            "username_from": session["user"],
+            "group_name": user_group,
+            "for_username": request.form.get("for_username"),
+        }
+        mongo.db.wishes.update({"_id": ObjectId(wish_id)}, submit)
+        flash("Your Wish Has Been Successfully Updated")
+        return redirect(url_for('profile', username=session["user"]))
+
+    wish = mongo.db.wishes.find_one({"_id": ObjectId(wish_id)})
+    users = mongo.db.users.find({'group_name':user_group})
+
+    # Page Title
+    title = 'Edit-Wish'
+    return render_template("edit_wish.html", wish=wish,
+                           users=users, user_group=user_group, title=title)
 
 
 if __name__ == "__main__":
