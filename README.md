@@ -1,7 +1,12 @@
-# Hackathon Project Title/Name
+#[The WishingTree](https://snowflakes-ci-xmas-hackathon.herokuapp.com/)
 ***
 
-## Table of Contents:
+This app was developed by 5 coders, the snowflakes, as part of the Code Institute Christmas 2021 Hackathon:  [Marina](https://github.com/marina601), [Anthony](https://github.com/auxfuse), [Chris](https://github.com/ChrisT-CC), [Debbie](https://github.com/debbiect246) and [Melissa]().
+
+We were able to develop an app around the theme of Christmas and after some discussion we decided to create an app for a user to be able to send good wishes over the Christmas period to family and friends.
+
+
+## Table of Contents :
 * [What does it do and what does it need to fulfill?](#what-does-it-do-and-what-does-it-need-to-fulfill)
 * [Functionality of Project](#functionality-of-project)
 * [User Experience](#user-experience)
@@ -24,29 +29,23 @@
 
 ***
 
-## Welcome to <<project-name>>!
+## Welcome to The Wishing Tree!
 
-![show final site image here](assets/docs/image.png)
+![Landing page](static/images/wishtreeScreenshot.jpg)
 
 ***
 
-## What does it do and what does it need to fulfill?
-lorem lorem lorem
-lorem lorem lorem
-lorem lorem lorem
-lorem lorem lorem
-lorem lorem lorem
-lorem lorem lorem
-lorem lorem lorem
-lorem lorem lorem
-
-lorem lorem lorem
-lorem lorem lorem
+## What does the app do and what does it need to fulfill?
+The Wishing Tree is an app that allows users create a profile and when logged in they can create  Christmas messages which are displayed to different family members or friends in their group.   A user sets up a group initially and adds friends and family members to the group so that these people can be easily selected when messages are created for them.
 
 ![show favicon site image here](assets/docs/image.png)
 
-### Functionality of Project
-This application contains ....
+### Functionality of the Project
+This application contains a login page, a register page, a wishing tree page, a logout page.
+- User can login.
+- User can register.
+- User can create wishes which are displayed to family members and friends once they log in.
+- User can logout of the app.
 
 [Back to top](#table-of-contents)
 
@@ -54,42 +53,46 @@ This application contains ....
 
 #### User Stories:
 _Generic (Guest/Public) User:_
-* As a Generic User, I want to...
+* As a Generic User, I want to see what this app does, how it works and to 
 
 _Registers (Logged in) User:_
-* As a Registered User, I want to...
+* As a Registered User, I want to:
+* Assign myself to a group
+* see the wishes I have made in my profile
+* create wishes to be displayed to a family member or friend
 
 _Developer:_
-* As a Developer, I want to...
+* As a Developer, I want to
+- Create an app that is visually attractive to users.
+- Has a Christmassy feel to it.
+- Is easy for the user to use.
 
 #### Design
 
 ##### 1. Font
-lorem
+[google fuzzy bubbles font ](https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap)was used for all pages in the project.
 
 ##### 2. Color Scheme
-lorem - replace as necessary
 
-detail color palettes/swatches here using images.
+Colour palettes from [coolors.co ](https://coolors.co/344d2f-a81817-c8beb9-fac57d-f0f4f7) were used to make pages attactive to look at.
 
-The colors used throughout and what for etc....
+The colors used throughout used were based on green, red and white.
 
 ##### 3. Logo
-The logo was ... add detail, or remove as necessary
+The logo was created by Anthony and discussed and reviewed by team members. 
 
 ![show site logo here](assets/docs/image.png)
 
 ##### 4. Geometry
 
-The applications geometrical aspects...
+The applications geometrical aspects were chosen to place important images in the fore ground and other softened images in the background.
 
 ##### 5. Wireframing
 
 The wireframes were created for each individual page on three different screen sizes. They live below. 
 
-<details>
-<summary>Wireframes</summary>
-Home page
+
+##### Home page
 
 ![Home page](static/images/home_page_wireframe.png)
 
@@ -105,7 +108,7 @@ Login/Register page
 
 ![Login/Register page](static/images/login_register_page_wireframe.png)
 
-</details>
+
 
 [Back to Top](#table-of-contents)
 
@@ -113,36 +116,100 @@ Login/Register page
 
 #### Languages, Frameworks, Editors & Version Control:
 
-* add notes here on techstack...
+#### Tech stack used
+
+* We used the [Flask](https://flask.palletsprojects.com/) framework for handling REST API calls
+
+* We used[materialize ](https://materializecss.com/getting-started.htm) for responsive images.
+  
+
+* generating web pages from HTML templates with [Jinja](https://jinja.palletsprojects.com/) 
+
+* [python ](https://www.python.org/)is a programming language widely used on the internet with web frameworks to create apps.
+
+* [html ](https://devdocs.io/html/)stands for HyperText MarkUp Language and is used to put content and structure on a web page.
+
+* [CSS](https://devdocs.io/css/) stands for cascading style sheets and is used to style a webpage.
+  
+#### Version control
+
+* version control was managed using github
+- Each person in the project used a branch to develop the chosen functionality.
+- Cards were raised in the project for each piece of functionality.
+- Issues were raised and could be commented on by all involved in the project.
+- As each piece of functionality was finished it was pushed to the main github repo and then a pull request was issued.  The pull request was reviewed and approved by another collaborator before being merged into the main branch of the repo.
+
+#### Structure of the app
+- The app was built using a [mobile first paradigm ](https://www.biznessapps.com/blog/mobile-first-approach/).  
+
+- The `app.py` file contains code related to Flask only, no database or form reference can appear in there.
+- database files are stored in the `env.py` file which is in the `.gitignore` file.  The `.gitignore`file is not pushed to github as it contains data which is essential to running the app.
+
+- the details in the `env.py` file were:
+
+        `import os`
+        `os.environ.setdefault("IP", "0.0.0.0")`
+        `os.environ.setdefault("PORT", "5000")`
+        `os.environ.setdefault("SECRET_KEY", "xxxxxx")`
+        `os.environ.setdefault("MONGO_URI", "mongodb+srv://xxx1@myxxxcluster.xxx.mongodb.net/xxxxx?retryWrites=true&w=majority")`
+        `os.environ.setdefault("MONGO_DBNAME", "xxxx")`
+
+  - The `db.py` file is a module and contains code related to the database.
+  - the `base.html` file contains the base HTML structure of all web pages generated in the app
+  - the `home.html` is the welcome page and is the first page the user sees.
+  - the `login.html` file contains template for a user to login to the app.
+  - the `register.html` file contains the template for a user to register on the app.
+  - form was created for user to make wish.
+
 
 #### Tools Used:
 
-* add notes here on tools used to assist in developing the project...
+* git hub was used to manage the project and we used issues, notification and issues to show important stages of the project and to comment on these.
+* HTML and CSS were used to design pages for the app.
+* The flask framework was used to set up 
+* heroku was used to deploy the project.
+
 
 ## Database
 
 #### Database Schema:
 
-Detail the db schema here (if applicable)....images, thoughts behind fks etc
+The databases were created in mongodb.
+One database was created for users and passwords
+One database was created to hold details of users wishes.
+
+* User database
+
+Field Name   | Key in db | Validation| Fieldtype  |
+
+
+
+* Wishes database
+
+Field Name   | Key in db | Validation| Fieldtype  |
 
 ## Features
 
 The project boasts several key features:
-* Create: ...
+* It promotes friendship and love!
+* It allows people in a group to be connected via messages input by users.
+* It is easy to use.
+* It allows registered users to see and review the messages they have sent over the Christmas period.
 
 [Back to Top](#table-of-contents)
 
 #### Future Features:
 
-* Detail future implementations here...
+* Email can be sent by user to friend or family member telling them that a message is ready for them to view.
 
 ## Testing
 
-Testing was ...
+Testing was carried out manually.  As each person developed a feature they tested it.  This was then reviewed in group calls in slack where screens were shared and conversations took place about the code being created and the intended functionality.
 
 #### Found Bugs and Fixes:
 
-During manual testing...
+During manual testing some bugs were found in the following areas:
+- responsiveness.  This was solved using css styling and [chrome developer tools.](https://developer.chrome.com/docs/devtools/open/)
 
 [Back to Top](#table-of-contents)
 
@@ -152,7 +219,28 @@ Defensive design for this application was...
 
 ## Deployment
 
-Detail deployment here...
+[Heroku](https://www.heroku.com/) is a PaaS cloud service, you can deploy this project for free on it.
+
+#### 7.6 Prerequisites:
+- Marina forked  this project into her repository on GitHub.
+- Heroku requires these files to deploy successfully, they are both in the root folder of the project:
+- `requirements.txt`
+- `Procfile`
+- Marina already has a Heroku account.
+
+#### 7.7 Create a Heroku App
+Marina followed these steps to deploy the app from GitHub to Heroku:
+- In Heroku, click on Create New App,  and give it a platform-unique name,  then choose region, click on `Create App` button
+- On the app/Deployment page select GitHub as Deployment method, underneath click on `Connect GitHub` button
+- In the GitHub authorization popup window login into GitHub with your GitHub username and click on `Authorize Heroku` button
+- Type in your repo name and click `search`. It lists your repos. Choose the one and click on `connect` next to it.
+- either enable automatic deployment on every push to the chosen branch or stick to manual deployment
+- go to app/Settings page, click on `Reveal Config Vars` and enter the following variables and their values from the `envWS.py` file:
+  * FLASK_SECRET_KEY
+  * PORT
+  * MONGO URI
+  * MONGO DBNAME
+
 
 [Back to Top](#table-of-contents)
 
@@ -164,7 +252,9 @@ Detail deployment here...
 
 #### Special Thanks & Acknowledgements:
 
-* Team 11 🤜
+## Team & Hosts
+* A huge thank you to all of our team members! Melissa, Anna, Anthony, Chris and Debbie who  put a lot of hours into building this project over 4 days.
+- Thanks so much to Code Institute  hosting this Christmas 2021 Hackathon.
 
 ###### <i>Disclaimer: This project was created for educational use only as part of Code Institute's 2021 Christmas Hackathon</i>
 
