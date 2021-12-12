@@ -7,7 +7,7 @@
     --dk-red: #811f1f;
     --silver: #C8BEB9;
     --yellow: #FAC57D;
-    --off-white: #f0f4f7;
+    --off-white: #f7f7f7;
     --dark: #181717;
 }
 
@@ -33,8 +33,9 @@ body {
 
     /* Navbar */
 nav {
+    box-shadow: inset 0 0 0 200px rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
     background-color: transparent;
-    box-shadow: none;
     height: 100px;
 }
 
@@ -47,7 +48,7 @@ nav {
     background-position: center center;
     background-size: cover;
     position: relative;
-    top: -5px;
+    top: -45px;
     filter: hue-rotate(90deg);
 }
 
@@ -59,26 +60,44 @@ nav .sidenav-trigger {
 }
 
 nav .brand-logo {
+    height: inherit;
     display: flex;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
     font-family: 'Fuzzy Bubbles', sans-serif;
-    color: var(--dark);
+    color: var(--off-white);
 }
 
 nav .brand-logo i {
+    height: inherit;
     margin-right: 10px;
     float: none;
+    line-height: 94px;
+}
+
+#nav-mobile {
+    height: inherit;
+}
+
+#nav-mobile li {
+    height: inherit;
 }
 
 #nav-mobile li a {
-    color: var(--dark);
+    height: inherit;
+    color: var(--off-white);
     margin-right: 1rem;
+    line-height: 94px;
 }
 
-.sidenav-trigger i {
+.nav-wrapper a.sidenav-trigger {
+    height: inherit;
+}
+
+.nav-wrapper a.sidenav-trigger i {
     font-size: 3rem;
     color: var(--red);
+    line-height: 94px;
 }
 
 .sidenav-trigger i:hover{
@@ -263,8 +282,6 @@ footer::before {
 
 /* Media Queries */
 
-
-
 @media (min-width: 992px) {
     /* Navbar */
     nav .brand-logo {
@@ -272,7 +289,7 @@ footer::before {
     }
 
     .nav-wrapper::after {
-        top: 60px;
+        top: 50px;
     }
 
     /* Footer */
