@@ -101,6 +101,7 @@ nav .brand-logo i {
     color: var(--dark);
     margin-right: 1rem;
     line-height: 94px;
+    font-size: 1.2rem;
 }
 
 .nav-wrapper a.sidenav-trigger {
