@@ -3,7 +3,7 @@
 
 This app was developed by 5 coders, the snowflakes, as part of the Code Institute Christmas 2021 Hackathon:  [Marina](https://github.com/marina601), [Anthony](https://github.com/auxfuse), [Chris](https://github.com/ChrisT-CC), [Debbie](https://github.com/debbiect246) and [Melissa]().
 
-We were able to develop an app around the theme of Christmas and after some discussion we decided to create an app for a user to be able to send good wishes over the Christmas period to family and friends.
+We were able to develop an app around the theme of Christmas and after some discussion we decided to create an app for a user to be able to send good wishes over the Christmas period to family and friends..
 
 
 ## Table of Contents :
