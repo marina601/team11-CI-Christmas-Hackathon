@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <section>
+        <!--Profile Card-->
+        <div class="row">
+            <div class="col s12 m8 offset-m2">
+                <div class="card-panel">
+                    <h3>{{ username }}'s Profile</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% if wishes|length > 0 %}
+            <div class="col s12 text-center">
+                <h3 class="heading">Your Wishes</h3>
+            </div>
+        </div>
+        <div class="row">
+            {% for wish in wishes %}
+            <!--User Wishes-->
+            <div class="col s12 m6 l4">
+                <div class="card">
+                    <div class="card-content text-black">
+                        <h4 class="card-title">{{ wish.message }}</h4>
+                        <p>For Team Memeber: {{ wish.for_username }}</p>
+                        <p>From Team Memeber: {{wish.username_from }}</p>
+                        <span class="right"><em>Date For: {{ wish.for_date }}</em></span>
+                    </div>
+                    <!--Edit and Delete Review Buttons-->
+                    <div class="card-action card-btn">
+                        <!-- Modal Trigger -->
+                        <button data-target="{{ wish._id }}" class="btn-small modal-trigger text-shadow btn-reset">
+                            Delete <i class="fas fa-trash-alt prefix"></i></button>
+                        <!-- Modal Structure -->
+                        <div id="{{ wish._id }}" class="modal">
+                            <div class="modal-content">
+                                <h4>Are you sure you want to delete this wish?</h4>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="modal-close waves-effect waves-green btn-flat">No</button>
+                                <a href="{{ url_for('delete_wish', wish_id=wish._id)}}"
+                                    class="modal-close waves-effect waves-green btn-flat">Yes</a>
+                            </div>
+                        </div>
+                        {% if session.user|lower == wish.username_from|lower %}
+                        <!--Edit Button-->
+                        <a href="{{ url_for('edit_wish', wish_id=wish._id)}}"
+                            class="btn-small">Edit <i class="fas fa-edit prefix"></i>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!--If the user does not have any wishes display the following-->
+            {% else %}
+            <div class="col s12 text-center">
+                <h3 class="heading">You have not created any wishes yet!</h3>
+                <p>Once you have created some wishes, you will be able to manage your wishes here</p>
+                <div class="col s12 center-align">
+                    <a href="{{ url_for('add_wish') }}" class="text-shadow btn-small btn affiliate-link back-link">
+                        Create a wish
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+        </div>
+    </section>
+
+{% endblock%}
