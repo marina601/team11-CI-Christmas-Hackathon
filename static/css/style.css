@@ -43,6 +43,10 @@ body {
     margin-top: 4rem;
 }
 
+.mb-utility-x4 {
+    margin-bottom: 4rem;
+}
+
 .custom-font {
     font-family: 'Fuzzy Bubbles', sans-serif;
 }
@@ -208,6 +212,8 @@ nav .brand-logo i {
 /* Error 404 */
 .error-message {
     text-align: center;
+    font-size: 1.4rem;
+    font-family: 'Fuzzy Bubbles', sans-serif;
 }
 
 /* Footer */
