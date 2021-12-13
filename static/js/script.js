@@ -1,3 +1,6 @@
+//jshint esversion: 6
+/*globals $:false */
+
 // Navbar toggler initialisation
 document.addEventListener('DOMContentLoaded', () => {
     let elems = document.querySelectorAll('.sidenav');

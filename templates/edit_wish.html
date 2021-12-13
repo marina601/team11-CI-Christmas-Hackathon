@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="input-field col s12">
                   <i class="fas fa-folder-open prefix"></i>
-                    <select id="for_username" name="for_username" class="validate" required>
+                    <select id="for_username" name="for_username" class="validate">
                         <option value="{{ wish.for_username }}" disabled selected>To: {{wish.for_username}}</option>
                         {% for user in users %}
                             <option value="{{ user.email }}">{{ user.email }}</option>
