@@ -64,3 +64,53 @@
     - unused variable 'instance'
 
  Both variables are coming from Materialize framework and therefore have been ignored.
+
+- [Dr Link Check](https://www.drlinkcheck.com/)
+   - Has been user to validate the links on the site
+   - No issues has been found 
+
+## Further Testing
+
+### Login Page
+
+- Go to the login page, confirm that the login form is displayed correctly.
+- Try to submit the form without entering any details, confirm custom feedback is displayed, which tells the user to enter a valid username.
+- Enter the username, but not the password, confirm custom feedback is displayed, telling the user to enter a valid password. The input field also turns red on invalid input.
+- Try to login with a username or password which does not exists in the database, confirm the flash message is displayed letting the user know that some of the details entered are incorrect.
+- Try to login using the correct username and password, confirm that the input fields change the colour to green on the valid entry.
+- Confirm that the logged-in user is redirected to their wishing tree page.
+- Log out, then try to log in the using correct username and password, confirm that this is successful.
+- Confirm *Register Here* link takes the user to the registration page.
+- Above steps have been repeated on mobile and tablet devices. No changes to this page layout across the different screen sizes.
+- Confirm the navbar has changed based on user access.
+- As a logged-in user, try to access the Login Page by modifying the URL, confirm the user has been redirected to their profile page. Flash message displayed telling the user they are already logged in.
+
+##### back to [content](#table-of-content)
+
+### 404 Page
+
+- Starting at the desktop view, typed some random characters after the URL and custom 404 page is displayed.
+- Hover over the logo on the left hand side which leads to the home page.
+- Clicked on the logo and the link has diverted the user to the home page. 
+- Repeated the following steps for tablet and mobile view. 
+- The result was satisfactory across the different size devices and browsers. 
+
+##### back to [content](#table-of-content)
+
+
+### 500 Page
+
+- Custom server error page has been designed to provide feedback to the user
+- The page provides the link for the user to return to the home page in the form of the logo on the left hand side
+- To test this page I had to take the following steps
+  1. inside the app.py file `from Flask import abort`
+  2. add abort(500) before a return or redirect in any route
+    - `@app.route("/index")
+       def index():
+       """
+       Route to index template
+       """
+      abort(500)
+      return render_template("home.html")`
+  
+  - We have used the above code to test our custom 500.html, then removed abort from import in Flask and abort(500) within the route
