@@ -22,7 +22,7 @@
             </div>
             <div class="col s12 center-align">
                {% if session.user %}
-               <a class="waves-effect waves-light btn" href="{{ url_for('logout') }}">Logout</a>
+                  <a class="waves-effect waves-light btn" href="{{ url_for('logout') }}">Logout</a>
                {% else %}
                   <a class="waves-effect waves-light btn" href="{{ url_for('login') }}">Login</a>
                {% endif %}
