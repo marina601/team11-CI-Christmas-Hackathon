@@ -52,7 +52,7 @@ def register():
         if existing_user:
             flash("Username in use, try alternative")
             return redirect(url_for("register"))
-        
+
         # Validate email
         existing_email = mongo.db.users.find_one(
             {"email": request.form.get("email")}
@@ -80,7 +80,7 @@ def register():
         session["user"] = request.form.get("username").lower()
         flash("You have successfully Registered!")
         return redirect(url_for('profile', username=session["user"]))
-    
+
     # Page Title
     title = 'Register'
     return render_template("register.html", title=title, groups=groups)
@@ -158,6 +158,7 @@ def add_group():
 
     return render_template("add_group.html")
 
+
 @app.route("/add_wish", methods=["GET", "POST"])
 def add_wish():
     """
@@ -176,7 +177,7 @@ def add_wish():
     user_group = mongo.db.users.find_one(
         {"username": session["user"]})["group_name"]
     # find the users under the same group name
-    users = mongo.db.users.find({'group_name':user_group})
+    users = mongo.db.users.find({'group_name': user_group})
 
     if request.method == "POST":
         wish = {
@@ -190,7 +191,7 @@ def add_wish():
         mongo.db.wishes.insert_one(wish)
         flash("Wish Successfully Created")
         return redirect(url_for("index"))
-   
+
     return render_template("add_wish.html", user_group=user_group, users=users)
 
 
@@ -229,6 +230,7 @@ def delete_wish(wish_id):
 
     return redirect(url_for('profile', username=session['user']))
 
+
 @app.route("/edit_wish/<wish_id>", methods=["GET", "POST"])
 def edit_wish(wish_id):
     """
@@ -238,20 +240,22 @@ def edit_wish(wish_id):
     # find the current user group name
     user_group = mongo.db.users.find_one(
         {"username": session["user"]})["group_name"]
-    
+
     if request.method == "POST":
-        mongo.db.wishes.find_one_and_update({"_id": ObjectId(wish_id)}, {"$set": {
-            "message": request.form.get("message"),
-            "for_date": request.form.get("for_date"),
-            "username_from": session["user"],
-            "group_name": user_group,
-            "for_username": request.form.get("for_username"),
-        }})
+        mongo.db.wishes.find_one_and_update(
+            {"_id": ObjectId(wish_id)},
+            {"$set": {
+                       "message": request.form.get("message"),
+                       "for_date": request.form.get("for_date"),
+                       "username_from": session["user"],
+                       "group_name": user_group,
+                       "for_username": request.form.get("for_username"),
+                    }})
         flash("Your Wish Has Been Successfully Updated")
         return redirect(url_for('profile', username=session["user"]))
 
     wish = mongo.db.wishes.find_one({"_id": ObjectId(wish_id)})
-    users = mongo.db.users.find({'group_name':user_group})
+    users = mongo.db.users.find({'group_name': user_group})
 
     # Page Title
     title = 'Edit-Wish'
@@ -269,10 +273,11 @@ def wishing_tree():
 
     user = mongo.db.users.find_one(
         {"username": session["user"]})['email']
-    wishes = mongo.db.wishes.find({'for_username':user})
+    wishes = mongo.db.wishes.find({'for_username': user})
 
     title = 'Wishing-Tree'
-    return render_template("wishing_tree.html", wishes=wishes, user=user, title=title)
+    return render_template("wishing_tree.html", wishes=wishes,
+                           user=user, title=title)
 
 
 @app.errorhandler(404)
