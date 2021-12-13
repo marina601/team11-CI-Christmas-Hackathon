@@ -41,7 +41,7 @@ def register():
     Creating a dictionary to insert user into db
     Insert the new user into db
     Put the user into 'session' cookie
-    Redirect the user to their profile page
+    Redirect the user to their profile
     """
     groups = list(mongo.db.groups.find().sort("group_name", 1))
 
@@ -68,8 +68,6 @@ def register():
         if password_1 != password_2:
             flash("Your passwords do not match")
             return redirect(url_for("register"))
-        
-        email = request.form.get("email")
 
         register = {
             "username": request.form.get("username").lower(),
@@ -81,7 +79,7 @@ def register():
 
         session["user"] = request.form.get("username").lower()
         flash("You have successfully Registered!")
-        return redirect(url_for('index', username=session["user"]))
+        return redirect(url_for('profile', username=session["user"]))
     
     # Page Title
     title = 'Register'
@@ -108,7 +106,7 @@ def login():
                 flash("Welcome, {}"
                       .format(request.form.get("username").capitalize()))
                 return redirect(url_for(
-                    'index', username=session["user"]))
+                    'wishing_tree', username=session["user"]))
 
             else:
                 # invalid password match
@@ -122,11 +120,13 @@ def login():
 
     # if the user is already in session
     if 'user' in session:
-        return redirect(url_for('index', username=session['user']))
+        flash("You are already logged in!")
+        return redirect(url_for('profile', username=session['user']))
 
     # Page Title
     title = 'Login'
     return render_template("login.html", title=title)
+
 
 @app.route("/logout")
 def logout():
