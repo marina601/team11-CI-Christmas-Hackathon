@@ -341,6 +341,16 @@ nav .brand-logo i {
             backdrop-filter: blur(8px);
 }
 
+/* Wish Tree */
+.card .card-content .card-title.wish-message {
+    margin: 1rem auto;
+    min-height: 10ch;
+    max-height: 10ch;
+    font-size: 1.2rem;
+    font-weight: 400;
+    overflow-y: auto;
+}
+
 /* Error 404 */
 .error-message {
     text-align: center;
@@ -369,6 +379,7 @@ footer::before {
     top: -45px;
     -webkit-filter: hue-rotate(315deg);
             filter: hue-rotate(315deg);
+    pointer-events: none;
 }
 
 .footer-title {
