@@ -345,8 +345,10 @@ nav .brand-logo i {
 .card .card-content .card-title.wish-message {
     margin: 1rem auto;
     min-height: 10ch;
-    font-size: 1.4rem;
-    font-weight: 500;
+    max-height: 10ch;
+    font-size: 1.2rem;
+    font-weight: 400;
+    overflow-y: auto;
 }
 
 /* Error 404 */
@@ -377,6 +379,7 @@ footer::before {
     top: -45px;
     -webkit-filter: hue-rotate(315deg);
             filter: hue-rotate(315deg);
+    pointer-events: none;
 }
 
 .footer-title {
