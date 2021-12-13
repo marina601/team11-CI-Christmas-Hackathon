@@ -1,7 +1,7 @@
 # [The WishingTree](https://snowflakes-ci-xmas-hackathon.herokuapp.com/)
 
 
-This app was developed by 5 coders, the snowflakes, as part of the Code Institute Christmas 2021 Hackathon:  [Marina](https://github.com/marina601), [Anthony](https://github.com/auxfuse), [Chris](https://github.com/ChrisT-CC), [Debbie](https://github.com/debbiect246) and [Ana Melissa]().
+This app was developed by 5 coders, the snowflakes, as part of the Code Institute Christmas 2021 Hackathon:  [Marina](https://github.com/marina601), [Anthony](https://github.com/auxfuse), [Chris](https://github.com/ChrisT-CC), [Debbie](https://github.com/debbiect246) and [Ana Melissa](https://github.com/AnaMelisaGo).
 
 We were able to develop an app around the theme of Christmas and after some discussion we decided to create an app for a user to be able to send good wishes over the Christmas period to family and friends..
 
