@@ -167,7 +167,7 @@ def add_wish():
     """
     if "user" not in session:
         # If user is not logged in
-        flash("Please login to create a wish")
+        flash("Please log-in to create a wish")
         return redirect(url_for("login"))
 
     # find the current date
@@ -262,10 +262,17 @@ def edit_wish(wish_id):
 @app.route("/wishing_tree")
 def wishing_tree():
     """Display user wishes"""
+    if "user" not in session:
+        # If user is not logged in
+        flash("Please log-in to access this page")
+        return redirect(url_for("login"))
+
     user = mongo.db.users.find_one(
         {"username": session["user"]})['email']
     wishes = mongo.db.wishes.find({'for_username':user})
-    return render_template("wishing_tree.html", wishes=wishes, user=user)
+
+    title = 'Wishing-Tree'
+    return render_template("wishing_tree.html", wishes=wishes, user=user, title=title)
 
 
 @app.errorhandler(404)
