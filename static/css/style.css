@@ -16,18 +16,26 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 body {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     min-height: 100vh;
     color: var(--dark);
 }
 
 #main-container {
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     background: url("../images/tree_in_snow_landscape.jpg") no-repeat left top;
     background-size: cover;
     margin: 0;
@@ -53,8 +61,10 @@ body {
 
     /* Navbar */
 nav {
-    box-shadow: inset 0 0 0 200px rgba(255,255,255,0.08);
-    backdrop-filter: blur(8px);
+    -webkit-box-shadow: inset 0 0 0 200px rgba(255,255,255,0.08);
+            box-shadow: inset 0 0 0 200px rgba(255,255,255,0.08);
+    -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
     background-color: transparent;
     height: 100px;
 }
@@ -69,22 +79,37 @@ nav {
     background-size: cover;
     position: relative;
     top: -45px;
-    filter: hue-rotate(315deg);
+    -webkit-filter: hue-rotate(315deg);
+            filter: hue-rotate(315deg);
     pointer-events: none;
 }
 
 nav .sidenav-trigger {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
     float: none;
 }
 
 nav .brand-logo {
     height: inherit;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     font-family: 'Fuzzy Bubbles', sans-serif;
     color: var(--dark);
 }
@@ -123,40 +148,92 @@ nav .brand-logo i {
 }
 
 .sidenav-trigger i:hover{
-    animation-name: shake;
-    animation-duration: 1000ms;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-out;
+    -webkit-animation-name: shake;
+            animation-name: shake;
+    -webkit-animation-duration: 1000ms;
+            animation-duration: 1000ms;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
     color: var(--dk-red);
+}
+
+@-webkit-keyframes shake {
+    0% {
+        -webkit-transform: rotate(0);
+                transform: rotate(0);
+    }
+    15% {
+        -webkit-transform: rotate(5deg);
+                transform: rotate(5deg);
+    }
+    30% {
+        -webkit-transform: rotate(-5deg);
+                transform: rotate(-5deg);
+    }
+    45% {
+        -webkit-transform: rotate(4deg);
+                transform: rotate(4deg);
+    }
+    60% {
+        -webkit-transform: rotate(-4deg);
+                transform: rotate(-4deg);
+    }
+    75% {
+        -webkit-transform: rotate(2deg);
+                transform: rotate(2deg);
+    }
+    85% {
+        -webkit-transform: rotate(-2deg);
+                transform: rotate(-2deg);
+    }
+    92% {
+        -webkit-transform: rotate(1deg);
+                transform: rotate(1deg);
+    }
+    100% {
+        -webkit-transform: rotate(0);
+                transform: rotate(0);
+    }
 }
 
 @keyframes shake {
     0% {
-        transform: rotate(0);
+        -webkit-transform: rotate(0);
+                transform: rotate(0);
     }
     15% {
-        transform: rotate(5deg);
+        -webkit-transform: rotate(5deg);
+                transform: rotate(5deg);
     }
     30% {
-        transform: rotate(-5deg);
+        -webkit-transform: rotate(-5deg);
+                transform: rotate(-5deg);
     }
     45% {
-        transform: rotate(4deg);
+        -webkit-transform: rotate(4deg);
+                transform: rotate(4deg);
     }
     60% {
-        transform: rotate(-4deg);
+        -webkit-transform: rotate(-4deg);
+                transform: rotate(-4deg);
     }
     75% {
-        transform: rotate(2deg);
+        -webkit-transform: rotate(2deg);
+                transform: rotate(2deg);
     }
     85% {
-        transform: rotate(-2deg);
+        -webkit-transform: rotate(-2deg);
+                transform: rotate(-2deg);
     }
     92% {
-        transform: rotate(1deg);
+        -webkit-transform: rotate(1deg);
+                transform: rotate(1deg);
     }
     100% {
-        transform: rotate(0);
+        -webkit-transform: rotate(0);
+                transform: rotate(0);
     }
 }
 
@@ -188,8 +265,10 @@ nav .brand-logo i {
 }
 
 .home-content {
-    box-shadow: inset 0 0 0 200px rgba(255,255,255,0.08);
-    backdrop-filter: blur(8px);
+    -webkit-box-shadow: inset 0 0 0 200px rgba(255,255,255,0.08);
+            box-shadow: inset 0 0 0 200px rgba(255,255,255,0.08);
+    -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
     opacity: 0.85;
     color: var(--dark);
     border-radius: 15px;
@@ -202,8 +281,10 @@ nav .brand-logo i {
 }
 
 .user-form .card-panel {
-    box-shadow: inset 0 0 0 400px rgba(255,255,255,0.20);
-    backdrop-filter: blur(8px);
+    -webkit-box-shadow: inset 0 0 0 400px rgba(255,255,255,0.20);
+            box-shadow: inset 0 0 0 400px rgba(255,255,255,0.20);
+    -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
     background-color: transparent;
     border-radius: 2rem;
     width: 90%;
@@ -221,8 +302,10 @@ nav .brand-logo i {
 
 .card .card-content, .card .card-action {
     background-color: transparent;
-    box-shadow: inset 0 0 0 400px rgba(255,255,255,0.20);
-    backdrop-filter: blur(8px);
+    -webkit-box-shadow: inset 0 0 0 400px rgba(255,255,255,0.20);
+            box-shadow: inset 0 0 0 400px rgba(255,255,255,0.20);
+    -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
 }
 
 /* Error 404 */
@@ -235,7 +318,8 @@ nav .brand-logo i {
 /* Footer */
 
 footer {
-    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
     color: var(--dark); 
     background-color: rgba(116, 135, 141, 0.3);
 }
@@ -250,7 +334,8 @@ footer::before {
     background-size: cover;
     position: relative;
     top: -45px;
-    filter: hue-rotate(315deg);
+    -webkit-filter: hue-rotate(315deg);
+            filter: hue-rotate(315deg);
 }
 
 .footer-title {
@@ -259,10 +344,18 @@ footer::before {
 }
 
 #dev-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .dev {
@@ -277,7 +370,8 @@ footer::before {
 
 .dev a i {
     opacity: 0;
-    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
     border-radius: 50%;
     border: none;
 }
@@ -285,29 +379,36 @@ footer::before {
 .dev a:hover i {
     color: rgb(248, 24, 218);
     background-color: transparent;
-    box-shadow: 10px 10px 70px 20px rgba(255,0,255,0.75);
+    -webkit-box-shadow: 10px 10px 70px 20px rgba(255,0,255,0.75);
+            box-shadow: 10px 10px 70px 20px rgba(255,0,255,0.75);
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     opacity: 1;
 }
 
 .dev a:hover i.c2 {
     color: rgb(255, 174, 0);
-    box-shadow: 10px 10px 70px 20px rgba(255, 174, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 70px 20px rgba(255, 174, 0, 0.75);
+            box-shadow: 10px 10px 70px 20px rgba(255, 174, 0, 0.75);
 }
 
 .dev a:hover i.c3 {
     color: rgb(21, 255, 0);
-    box-shadow: 10px 10px 70px 20px rgba(9, 255, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 70px 20px rgba(9, 255, 0, 0.75);
+            box-shadow: 10px 10px 70px 20px rgba(9, 255, 0, 0.75);
 }
 
 .dev a:hover i.c4 {
     color: rgb(38, 0, 255);
-    box-shadow: 10px 10px 70px 20px rgba(17, 0, 255, 0.75);
+    -webkit-box-shadow: 10px 10px 70px 20px rgba(17, 0, 255, 0.75);
+            box-shadow: 10px 10px 70px 20px rgba(17, 0, 255, 0.75);
 }
 
 .dev a:hover i.c5 {
     color: rgb(0, 255, 170);
-    box-shadow: 10px 10px 70px 20px rgba(0, 255, 191, 0.75);
+    -webkit-box-shadow: 10px 10px 70px 20px rgba(0, 255, 191, 0.75);
+            box-shadow: 10px 10px 70px 20px rgba(0, 255, 191, 0.75);
 }
 
 #project-repo {
@@ -332,6 +433,8 @@ footer::before {
 
 #project-repo:hover::after {
     opacity: 1;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
 }
 
@@ -354,8 +457,12 @@ footer::before {
 
     /* Footer */
     #dev-list {
-        flex-direction: row;
-        justify-content: space-around;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
     }
 
     /* Login/Registration */
@@ -369,4 +476,3 @@ footer::before {
         height: 110px;
     }
 }
-
