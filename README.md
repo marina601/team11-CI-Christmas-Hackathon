@@ -243,6 +243,8 @@ Testing was also carried out using the following validators:
 All validity tests were passed.
 
 
+More about testing [here](TESTING.md)
+
 #### Found Bugs and Fixes:
 
 During manual testing some bugs were found in the following areas:
