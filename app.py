@@ -258,7 +258,6 @@ def wishing_tree():
     """Display user wishes"""
     user = mongo.db.users.find_one(
         {"username": session["user"]})['email']
-    print(user)
     wishes = mongo.db.wishes.find({'for_username':user})
     return render_template("wishing_tree.html", wishes=wishes, user=user)
 
