@@ -60,8 +60,9 @@ _Generic (Guest/Public) User:_
 _Registers (Logged in) User:_
 * As a Registered User, I want to:
     -  Assign myself to a group
-    - see the wishes I have made in my profile
-    - create wishes to be displayed to a family member or friend
+    - See  all the wishes I have made in my profile
+    - Create wishes to be displayed to a family member or friend
+    
 
 _Developer:_
 * As a Developer, I want to
@@ -182,6 +183,7 @@ Login/Register page
 * git hub was used to manage the project and we used issues, notification and issues to show important stages of the project and to comment on these.
 * HTML and CSS were used to design pages for the app.
 * The flask framework was used to set up and implement the app.
+* javascript was used to implement interactivity.
 * heroku was used to deploy the project.
 
 
@@ -228,12 +230,27 @@ The project boasts several key features:
 
 ## Testing
 
-Testing was carried out manually.  As each person developed a feature they tested it.  This was then reviewed in group calls in slack where screens were shared and conversations took place about the code being created and the intended functionality.
+Testing was carried out manually initially.  As each person developed a feature they tested it.  This was then reviewed in group calls in slack where screens were shared and conversations took place about the code being created and the intended functionality.
+
+Testing was also carried out using the following validators:
+
+[ pep 8 python validator](http://pep8online.com/)
+
+[css and html validator](https://validator.w3.org/)
+
+[javascript validator](https://jshint.com/)
+
+All validity tests were passed.
+
 
 #### Found Bugs and Fixes:
 
 During manual testing some bugs were found in the following areas:
 - responsiveness.  This was solved using css styling and [chrome developer tools.](https://developer.chrome.com/docs/devtools/open/)
+
+We also found bugs in our `404.html` file and our `500.html` file.  These were corrected and tested manually.
+
+
 
 [Back to Top](#table-of-contents)
 
