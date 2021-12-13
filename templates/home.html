@@ -21,7 +21,11 @@
                   other for every day until Christmas wherever you are.</p>
             </div>
             <div class="col s12 center-align">
-               <a class="waves-effect waves-light btn" href="{{ url_for('login') }}">Login</a>
+               {% if session.user %}
+               <a class="waves-effect waves-light btn" href="{{ url_for('logout') }}">Logout</a>
+               {% else %}
+                  <a class="waves-effect waves-light btn" href="{{ url_for('login') }}">Login</a>
+               {% endif %}
             </div>
          </div>
       </div>
