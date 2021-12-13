@@ -41,7 +41,7 @@ def register():
     Creating a dictionary to insert user into db
     Insert the new user into db
     Put the user into 'session' cookie
-    Redirect the user to their profile page
+    Redirect the user to their profile
     """
     groups = list(mongo.db.groups.find().sort("group_name", 1))
 
@@ -68,8 +68,6 @@ def register():
         if password_1 != password_2:
             flash("Your passwords do not match")
             return redirect(url_for("register"))
-        
-        email = request.form.get("email")
 
         register = {
             "username": request.form.get("username").lower(),
@@ -81,7 +79,7 @@ def register():
 
         session["user"] = request.form.get("username").lower()
         flash("You have successfully Registered!")
-        return redirect(url_for('index', username=session["user"]))
+        return redirect(url_for('profile', username=session["user"]))
     
     # Page Title
     title = 'Register'
@@ -108,7 +106,7 @@ def login():
                 flash("Welcome, {}"
                       .format(request.form.get("username").capitalize()))
                 return redirect(url_for(
-                    'index', username=session["user"]))
+                    'wishing_tree', username=session["user"]))
 
             else:
                 # invalid password match
@@ -122,11 +120,13 @@ def login():
 
     # if the user is already in session
     if 'user' in session:
-        return redirect(url_for('index', username=session['user']))
+        flash("You are already logged in!")
+        return redirect(url_for('profile', username=session['user']))
 
     # Page Title
     title = 'Login'
     return render_template("login.html", title=title)
+
 
 @app.route("/logout")
 def logout():
@@ -165,6 +165,11 @@ def add_wish():
     get all the input fields from the form
     create a new wish in the database
     """
+    if "user" not in session:
+        # If user is not logged in
+        flash("Please log-in to create a wish")
+        return redirect(url_for("login"))
+
     # find the current date
     today = date.today()
     # find the current user group name
@@ -172,6 +177,7 @@ def add_wish():
         {"username": session["user"]})["group_name"]
     # find the users under the same group name
     users = mongo.db.users.find({'group_name':user_group})
+
     if request.method == "POST":
         wish = {
             "message": request.form.get("message"),
@@ -256,10 +262,17 @@ def edit_wish(wish_id):
 @app.route("/wishing_tree")
 def wishing_tree():
     """Display user wishes"""
+    if "user" not in session:
+        # If user is not logged in
+        flash("Please log-in to access this page")
+        return redirect(url_for("login"))
+
     user = mongo.db.users.find_one(
         {"username": session["user"]})['email']
     wishes = mongo.db.wishes.find({'for_username':user})
-    return render_template("wishing_tree.html", wishes=wishes, user=user)
+
+    title = 'Wishing-Tree'
+    return render_template("wishing_tree.html", wishes=wishes, user=user, title=title)
 
 
 @app.errorhandler(404)
