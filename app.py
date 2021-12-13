@@ -165,6 +165,11 @@ def add_wish():
     get all the input fields from the form
     create a new wish in the database
     """
+    if "user" not in session:
+        # If user is not logged in
+        flash("Please login to create a wish")
+        return redirect(url_for("login"))
+
     # find the current date
     today = date.today()
     # find the current user group name
@@ -172,6 +177,7 @@ def add_wish():
         {"username": session["user"]})["group_name"]
     # find the users under the same group name
     users = mongo.db.users.find({'group_name':user_group})
+
     if request.method == "POST":
         wish = {
             "message": request.form.get("message"),
