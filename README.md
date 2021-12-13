@@ -230,6 +230,8 @@ The project boasts several key features:
 
 Testing was carried out manually.  As each person developed a feature they tested it.  This was then reviewed in group calls in slack where screens were shared and conversations took place about the code being created and the intended functionality.
 
+More about testing [here](TESTING.md)
+
 #### Found Bugs and Fixes:
 
 During manual testing some bugs were found in the following areas:
