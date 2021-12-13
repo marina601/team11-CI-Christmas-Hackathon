@@ -20,8 +20,12 @@
                   You and your friends can write and send wishes to each
                   other for every day until Christmas wherever you are.</p>
             </div>
-            <div class="col offset-s8">
-               <a class="waves-effect waves-light btn pulse">Login</a>
+            <div class="col s12 center-align">
+               {% if session.user %}
+                  <a class="waves-effect waves-light btn" href="{{ url_for('logout') }}">Logout</a>
+               {% else %}
+                  <a class="waves-effect waves-light btn" href="{{ url_for('login') }}">Login</a>
+               {% endif %}
             </div>
          </div>
       </div>

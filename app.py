@@ -267,6 +267,7 @@ def response_404(exception):
     """
     return render_template('404.html', exception=exception, page_title="404")
 
+
 @app.errorhandler(500)
 def response_500(exception):
     """

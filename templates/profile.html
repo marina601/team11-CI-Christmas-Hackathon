@@ -4,15 +4,13 @@
     <section>
         <!--Profile Card-->
         <div class="row">
-            <div class="col s12 m8 offset-m2">
-                <div class="card-panel">
-                    <h3>{{ username }}'s Profile</h3>
-                </div>
+            <div class="col s12 mt-utility-x4">
+                <h3 class="center-align">{{ username }}'s Profile</h3>
             </div>
         </div>
         <div class="row">
             {% if wishes|length > 0 %}
-            <div class="col s12 text-center">
+            <div class="col s12 center-align">
                 <h3 class="heading">Your Wishes</h3>
             </div>
         </div>
@@ -28,7 +26,7 @@
                         <span class="right"><em>Date For: {{ wish.for_date }}</em></span>
                     </div>
                     <!--Edit and Delete Review Buttons-->
-                    <div class="card-action card-btn">
+                    <div class="card-action card-btn center-align">
                         <!-- Modal Trigger -->
                         <button data-target="{{ wish._id }}" class="btn-small modal-trigger text-shadow btn-reset">
                             Delete <i class="fas fa-trash-alt prefix"></i></button>
@@ -55,7 +53,7 @@
             {% endfor %}
             <!--If the user does not have any wishes display the following-->
             {% else %}
-            <div class="col s12 text-center">
+            <div class="col s12 center-align">
                 <h3 class="heading">You have not created any wishes yet!</h3>
                 <p>Once you have created some wishes, you will be able to manage your wishes here</p>
                 <div class="col s12 center-align">
